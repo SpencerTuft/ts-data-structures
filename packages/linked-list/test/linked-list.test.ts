@@ -1,0 +1,13 @@
+describe('Linked List', () => {
+  it.todo('should convert an array to a linked list')
+  it.todo('should prepend to the list')
+  it.todo('should append to the list')
+  it.todo('should delete from the list by value')
+  it.todo('should find a node in the list')
+  it.todo('should delete the tail')
+  it.todo('should delete the head')
+  it.todo('should delete the head')
+  it.todo('should convert from a linked list to an array')
+  it.todo('should stringify the list')
+  it.todo('should reverse the order of the linked list')
+})

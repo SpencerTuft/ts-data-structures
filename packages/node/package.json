@@ -1,0 +1,38 @@
+{
+  "name": "@structure/node",
+  "version": "0.0.0",
+  "description": "Javascript node implementation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard --fix",
+    "test": "jest"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuft2/structure.git"
+  },
+  "author": "Spencer Tuft<stuft2@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stuft2/structure/issues"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/jest": "^29.2.3",
+    "jest": "^29.3.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.9.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
