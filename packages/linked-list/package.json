@@ -1,6 +1,6 @@
 {
   "name": "@structure/linked-list",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Javascript linked-list implementation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
     "url": "https://github.com/stuft2/structure/issues"
   },
   "dependencies": {
-    "@structure/node": "*",
+    "@structure/node": "^0.0.1",
     "benny": "^3.7.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@structure/graph",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Javascript graph implementation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,8 @@
     "url": "https://github.com/stuft2/structure/issues"
   },
   "dependencies": {
-    "@structure/linked-list": "*",
-    "@structure/node": "*",
+    "@structure/linked-list": "^0.0.1",
+    "@structure/node": "^0.0.1",
     "ulid": "^2.3.0"
   },
   "devDependencies": {

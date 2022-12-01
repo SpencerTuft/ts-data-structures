@@ -1,6 +1,6 @@
 {
   "name": "@structure/stack",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Javascript stack implementation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
     "url": "https://github.com/stuft2/structure/issues"
   },
   "dependencies": {
-    "@structure/queue": "*"
+    "@structure/queue": "^0.0.1"
   },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.1",
