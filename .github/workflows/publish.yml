@@ -24,8 +24,8 @@ jobs:
     strategy:
       matrix:
         registry:
-          # - token: NPM_TOKEN
-          #   url: https://registry.npmjs.org
+          - token: NPM_TOKEN
+            url: https://registry.npmjs.org
           - token: GITHUB_TOKEN
             url: https://npm.pkg.github.com
     steps:
