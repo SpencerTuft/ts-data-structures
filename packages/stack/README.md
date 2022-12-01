@@ -3,7 +3,7 @@
 
   <br><br><br><br><br>
 
-  # @structure/stack
+  # @oaspub/stack
 
   Stack data structure implementation in TypeScript
 

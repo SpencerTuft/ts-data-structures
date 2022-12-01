@@ -3,7 +3,7 @@
 
   <br><br><br><br><br>
 
-  # @structure
+  # @oaspub/structures
 
   Various data structure implementations in TypeScript
 
@@ -19,11 +19,11 @@
 
 | Name | Version |
 | :--- | :------ |
-| [@structure/graph](./packages/graph/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@structure/graph?style=flat-square) |
-| [@structure/linked-list](./packages/linked-list/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@structure/linked-list?style=flat-square) |
-| [@structure/node](./packages/node/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@structure/node?style=flat-square) |
-| [@structure/queue](./packages/queue/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@structure/queue?style=flat-square) |
-| [@structure/stack](./packages/stack/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@structure/stack?style=flat-square) |
+| [@oaspub/graph](./packages/graph/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@oaspub/graph?style=flat-square) |
+| [@oaspub/linked-list](./packages/linked-list/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@oaspub/linked-list?style=flat-square) |
+| [@oaspub/node](./packages/node/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@oaspub/node?style=flat-square) |
+| [@oaspub/queue](./packages/queue/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@oaspub/queue?style=flat-square) |
+| [@oaspub/stack](./packages/stack/README.md) | ![npm (scoped)](https://img.shields.io/npm/v/@oaspub/stack?style=flat-square) |
 
 </div>
 

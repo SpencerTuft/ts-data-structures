@@ -3,7 +3,7 @@
 
   <br><br><br><br><br>
 
-  # @structure/graph
+  # @oaspub/graph
 
   Graph data structure implementation in TypeScript
 

@@ -1,4 +1,4 @@
-import { Queue } from '@structure/queue'
+import { Queue } from '@oaspub/queue'
 
 export class Stack<T> extends Queue<T> {
   constructor () {

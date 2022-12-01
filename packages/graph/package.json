@@ -1,5 +1,5 @@
 {
-  "name": "@structure/graph",
+  "name": "@oaspub/graph",
   "version": "0.0.1",
   "description": "Javascript graph implementation",
   "main": "dist/index.js",
@@ -24,8 +24,8 @@
     "url": "https://github.com/stuft2/structure/issues"
   },
   "dependencies": {
-    "@structure/linked-list": "^0.0.1",
-    "@structure/node": "^0.0.1",
+    "@oaspub/linked-list": "^0.0.1",
+    "@oaspub/node": "^0.0.1",
     "ulid": "^2.3.0"
   },
   "devDependencies": {

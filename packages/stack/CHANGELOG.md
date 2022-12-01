@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.0.1 (2022-12-01)
 
-**Note:** Version bump only for package @structure/stack
+**Note:** Version bump only for package @oaspub/stack

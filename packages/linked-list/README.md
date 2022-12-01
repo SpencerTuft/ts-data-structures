@@ -3,7 +3,7 @@
 
   <br><br><br><br><br>
 
-  # @structure/linked-list
+  # @oaspub/linked-list
 
   Linked list data structure implementation in TypeScript
 

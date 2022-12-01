@@ -1,7 +1,7 @@
 import { ulid } from 'ulid'
 import { Edge } from './edge'
-import { LinkedList } from '@structure/linked-list'
-import { Node } from '@structure/node'
+import { LinkedList } from '@oaspub/linked-list'
+import { Node } from '@oaspub/node'
 
 export class Vertex<T> {
   readonly key: string

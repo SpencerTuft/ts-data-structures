@@ -1,5 +1,5 @@
 {
-  "name": "@structure/linked-list",
+  "name": "@oaspub/linked-list",
   "version": "0.0.1",
   "description": "Javascript linked-list implementation",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
     "url": "https://github.com/stuft2/structure/issues"
   },
   "dependencies": {
-    "@structure/node": "^0.0.1",
+    "@oaspub/node": "^0.0.1",
     "benny": "^3.7.1"
   },
   "devDependencies": {

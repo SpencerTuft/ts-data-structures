@@ -1,4 +1,4 @@
-import { Node } from '@structure/node'
+import { Node } from '@oaspub/node'
 
 export class LinkedList<T> {
   head: Node<T> | null = null

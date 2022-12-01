@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
           registry-url: ${{ matrix.registry.url }}
-          scope: '@structure'
+          scope: '@oaspub'
 
       - name: Install dependencies
         run: npm ci
