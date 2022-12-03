@@ -1,135 +1,150 @@
 import { Node } from '@oaspub/node'
+import { isNegative } from './util'
 
 export class LinkedList<T> {
-  head: Node<T> | null = null
-  tail: Node<T> | null = null
+  cursor: Node<T> | null = null
+  length = 0
 
-  static from<T>(values: T[]): LinkedList<T> {
-    const list = new LinkedList<T>()
-    values.forEach(value => list.append(value))
-    return list
+  constructor (...values: T[]) {
+    this.push(...values)
   }
 
-  prepend (value: T): this {
-    const node = new Node(value, this.head)
-    this.head = node
-    if (this.tail == null) {
-      this.tail = node
-    }
-    return this
+  private init (value: T): Node<T> {
+    this.cursor = new Node(value)
+    this.cursor.head(this.cursor)
+    this.cursor.tail(this.cursor)
+    return this.cursor
   }
 
-  append (value: T): this {
-    const node = new Node(value)
-    if (this.head == null || (this.tail == null)) {
-      this.head = node
-      this.tail = node
-      return this
-    }
-    this.tail.next = node
-    this.tail = node
-    return this
+  private direction (num: number): 'next' | 'prev' {
+    return isNegative(num) ? 'prev' : 'next'
   }
 
-  delete (value: T): Node<T> | null {
-    if (this.head == null || this.tail == null) {
-      return null
+  to (index: number): Node<T> | null {
+    const direction = this.direction(index)
+    index = Math.abs(index)
+
+    let target: Node<T> | null = this.cursor
+    while (target != null && index > 0) {
+      target = target[direction]
+      index--
     }
-    let deleted = null
-    while (this.head != null && this.head.value === value) {
-      deleted = this.head
-      this.head = this.head.next
+
+    return target
+  }
+
+  at (index: number): T | null {
+    return this.to(index)?.value ?? null
+  }
+
+  unshift (...values: T[]): number {
+    for (const value of values) {
+      if (this.cursor == null) {
+        this.init(value)
+      } else {
+        this.cursor = this.cursor.prev!.tail(value).headOf(this.cursor)
+      }
+      this.length++
     }
-    let current = this.head
-    if (current != null) {
-      while (current.next != null) {
-        if (current.next.value === value) {
-          deleted = current.next
-          current.next = current.next.next
+    return this.length
+  }
+
+  push (...values: T[]): number {
+    for (const value of values) {
+      if (this.cursor == null) {
+        this.init(value)
+      } else {
+        this.cursor.prev!.tail(value).headOf(this.cursor)
+      }
+      this.length++
+    }
+    return this.length
+  }
+
+  splice (start: number, deleteCount: number, ...items: T[]) {
+    if (deleteCount < 0) {
+      // Cannot delete less than zero
+      deleteCount = 0
+    }
+
+    // Find first node to delete
+    const direction = this.direction(start)
+    let cursor = this.to(start)
+
+    // Delete nodes until none left or delete count is zero
+    while (cursor != null && deleteCount > 0) {
+      const next = cursor[direction]
+      if (cursor === this.cursor) {
+        this.cursor = next
+      }
+      cursor.delete()
+      cursor = next
+      deleteCount--
+    }
+
+    for (const item of items) {
+      if (cursor == null) {
+        cursor = this.init(item)
+        this.cursor = cursor
+      } else {
+        const node = new Node(item)
+        if (cursor === this.cursor) {
+          this.cursor = node
+        }
+        if (direction === 'next') {
+          cursor.prev!.tail(node).headOf(cursor)
         } else {
-          current = current.next
+          cursor.next!.head(node).headOf(cursor)
         }
       }
     }
-    if (this.tail.value === value) {
-      this.tail = current
-    }
-    return deleted
   }
 
-  find (callback?: (value: T) => boolean): Node<T> | null {
-    if (this.head == null) {
-      return null
-    }
-    let current: Node<T> | null = this.head
-    while (current != null) {
-      if (callback?.(current.value) != null) {
-        return current
-      }
+  // find (callback?: (value: T) => boolean): Node<T> | null {
+  //   if (this.head == null) {
+  //     return null
+  //   }
+  //   let current: Node<T> | null = this.head
+  //   while (current != null) {
+  //     if (callback?.(current.value) != null) {
+  //       return current
+  //     }
+  //     current = current.next
+  //   }
+  //   return null
+  // }
+
+  toArray (): Array<T> {
+    const nodes: Array<T> = []
+    let current: Node<T> | null = this.cursor
+    while (current != null && current.next !== this.cursor) {
+      // Stop when we get to the tail node
+      nodes.push(current.value)
       current = current.next
     }
-    return null
-  }
-
-  deleteTail (): Node<T> | null {
-    const deleted = this.tail
-    if (this.head === this.tail) {
-      this.head = null
-      this.tail = null
-      return null
-    }
-    let current = this.head
-    while (current?.next != null) {
-      if (current.next.next == null) {
-        current.next = null
-      } else {
-        current = current.next
-      }
-    }
-    this.tail = current
-    return deleted
-  }
-
-  deleteHead (): Node<T> | null {
-    if (this.head == null) {
-      return null
-    }
-    const deleted = this.head
-    if (this.head.next != null) {
-      this.head = this.head.next
-    } else {
-      this.head = null
-      this.tail = null
-    }
-    return deleted
-  }
-
-  toArray (): Array<Node<T>> {
-    const nodes: Array<Node<T>> = []
-    let current = this.head
-    while (current != null) {
-      nodes.push(current)
-      current = current.next
+    if (current != null) {
+      // Add the tail node
+      nodes.push(current.value)
     }
     return nodes
   }
 
-  toString (callback?: (value: T) => string): string {
-    return this.toArray().map(node => node.toString(callback)).toString()
+  toString (): string {
+    return this.toArray().toString()
   }
 
-  reverse (): this {
-    let current = this.head
-    let previous = null
-    let next = null
-    while (current != null) {
-      next = current.next
-      current.next = previous
-      previous = current
-      current = next
-    }
-    this.tail = this.head
-    this.head = previous
-    return this
-  }
+  // reverse (): this {
+  //   let current = this.head
+  //   let previous = null
+  //   let next = null
+  //   while (current != null) {
+  //     next = current.next
+  //     current.next = previous
+  //     previous = current
+  //     current = next
+  //   }
+  //   this.tail = this.head
+  //   this.head = previous
+  //   return this
+  // }
 }

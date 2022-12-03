@@ -3,7 +3,7 @@
 
   <br><br><br><br><br>
 
-  # @oaspub/structures
+  # @oaspub/structure
 
   Various data structure implementations in TypeScript
 

@@ -16,12 +16,15 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stuft2/structure.git"
+    "url": "git+https://github.com/oaspub/structure.git"
   },
   "author": "Spencer Tuft<stuft2@protonmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stuft2/structure/issues"
+    "url": "https://github.com/oaspub/structure/issues"
+  },
+  "dependencies": {
+    "@oaspub/linked-list": "*"
   },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.1",

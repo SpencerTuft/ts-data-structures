@@ -1,5 +1,7 @@
+import { LinkedList } from '@oaspub/linked-list'
+
 export class Queue<T> {
-  private readonly data: T[] = []
+  private readonly data: LinkedList<T>
   readonly fifo: boolean
 
   constructor (options?: { fifo: boolean }) {
